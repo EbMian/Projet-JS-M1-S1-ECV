@@ -1,5 +1,6 @@
 /* * Consts and vars * */
 const send = document.querySelector("#send");
+const userInputContainer = document.querySelector(".user-input-container");
 const playAgain = document.querySelector("#playAgain");
 const chronoHTML = document.querySelector("#chrono");
 let scoreHTML = document.querySelector("#score");
@@ -14,13 +15,27 @@ let minutesInterval = '';
 let secondsInterval = '';
 let gameIsOver = false;
 let chrono = {minutes: 0, seconds: 60};
-let score = 60;
+let score = 1000;
 const userInputValue = [];
 const secretCodeText = document.querySelector("#secretCode");
 const pattern = /[0-9]/g;
 const error = document.querySelector("#error");
 
 /** * ** Functions ** * **/
+
+const secretCode = getRandomInt(9999);
+
+codeLength.innerHTML = `Le code secret contient ${secretCode.toString().length} chiffres`;
+
+function createUnderscoresCode () {
+    let underscores = "";
+    for (i=0; i<secretCode.toString().length; i++) {
+        underscores += "_"
+    }
+    userInputContainer.dataset.underscores = underscores;
+}
+
+createUnderscoresCode();
 
 
 /* Add of the event listner on every buttons */
@@ -29,9 +44,6 @@ for (let i = 0; i < numericButtonInputs.length; i++) {
         addNumber(numericButtonInputs[i]);
     });
 }
-const secretCode = getRandomInt(9999);
-
-codeLength.innerHTML = `Le code secret contient ${secretCode.toString().length} chiffres`;
 
 //console.log("secretCode", secretCode);
 
@@ -53,8 +65,6 @@ function checkingInput() {
     } else {
         error.removeAttribute("hidden");
     }
-    
-    
 }
 
 function addNumber(numericTouch) {
@@ -67,7 +77,8 @@ function addNumber(numericTouch) {
     if (inputLength > 0) {
         if (stringCode[inputLength - 1] === val) {
             userInput.value += val;
-            numericTouch.classList.add("positioned");
+            numericTouch.style.backgroundColor = "green";
+            numericTouch.style.color = "white";
             if(secretCode.toString() === userInput.value) {
                 endGame();
             }
@@ -76,11 +87,14 @@ function addNumber(numericTouch) {
         
     }
     if (stringCode.includes(val)) {
-        numericTouch.classList.add("included");
+        numericTouch.style.backgroundColor = "rgb(255, 102, 0)";
+        numericTouch.style.color = "white";
         userInputValue.pop();
     }
+
     if (stringCode.includes(val) != true) {
-        numericTouch.classList.add("not-included");
+        numericTouch.style.backgroundColor = "red";
+        numericTouch.style.color = "white";
         userInputValue.pop();
     }
     
@@ -130,6 +144,7 @@ function endGame() {
     } else {
         console.log("chrono", chrono.minutes, chrono.seconds)
     }
+    window.location.href = "score.html";
 }
 
 async function gameCounterSec() {
@@ -178,7 +193,8 @@ function updateChronoMinutes() {
 function updateChronoSeconds() {
     if (chrono.seconds > 1) {
         chrono.seconds -= 1;
-        score -= 1;
+        score = Math.floor(Math.pow(1.123, chrono.seconds));
+        console.log(score);
         if ((chrono.minutes >= 10) && (chrono.seconds >= 10)) {
             chronoHTML.innerHTML = `${chrono.minutes}:${chrono.seconds}`
         } else if ((chrono.minutes >= 10) && (chrono.seconds < 10)) {

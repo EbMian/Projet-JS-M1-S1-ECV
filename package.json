@@ -1,0 +1,24 @@
+{
+  "name": "projet-js-m1-s1-ecv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EbMian/Projet-JS-M1-S1-ECV.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EbMian/Projet-JS-M1-S1-ECV/issues"
+  },
+  "homepage": "https://github.com/EbMian/Projet-JS-M1-S1-ECV#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "pexels": "^1.4.0"
+  }
+}

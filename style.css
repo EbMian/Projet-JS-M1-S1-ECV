@@ -1,0 +1,268 @@
+.numeric-box-size {
+    /* width: 65vw;
+    max-width: 350px; */
+}
+
+.grid-3-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: var(--numeric-touch-gap);
+    row-gap: var(--numeric-touch-gap);
+    width: 100%;
+}
+
+.grid-3-cols .col {
+    grid-column: span 1;
+    border: none;
+    border-radius: 100px;
+    min-width: 50px;
+    width: 5vw;
+    height: 5vw;
+    max-width: 65px;
+    min-height: 50px;
+    max-height: 65px;
+    color: #FFC940;
+    background-color: black;
+    font-size: 35px;
+    margin: auto
+}
+
+.space-bottom-1 {
+    margin-bottom: var(--space-1);
+}
+
+.space-bottom-2 {
+    margin-bottom: var(--space-2);
+}
+
+.space-top-1 {
+    margin-top: var(--space-1);
+}
+
+.space-top-2 {
+    margin-top: var(--space-2);
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.touch-height {
+    height: var(--numeric-touch-height);
+}
+
+.included {
+    background-color: lightsalmon;
+}
+
+.not-included {
+    background-color: red;
+}
+
+.positioned {
+    background-color: greenyellow;
+}
+
+footer nav a p {
+    margin-top: 0px;
+}
+
+footer nav a {
+    text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+    .main-content-container {
+        width: 80vw;
+        margin: auto;
+    }
+
+}
+
+@media screen and (min-width: 501px) {
+    .main-content-container {
+        width: 70vw;
+        max-width: 500px;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .img-sizing {
+        width: 60vw; max-width: 400px;
+    }
+}
+
+@media screen and (min-width: 501px) and (max-width: 700px) {
+    .img-sizing {
+        width: 50vw; max-width: 400px;
+    }
+}
+
+@media screen and (min-width: 701px) {
+    .img-sizing {
+        width: 60vw; max-width:400px;
+    }
+}
+
+.header img {
+    margin-right: 10px;
+}
+
+.header-link {
+    display: none;
+}
+
+.header-link a {
+    margin-right: 30px;
+}
+
+.header-link a:last-child {
+    margin-right: 0px;
+}
+
+@media screen and (max-width: 991px) {
+    .header:first-child {
+        padding-left: 30px;
+    }
+
+    .main-frame {
+        border: solid 3px #FFC940;
+        border-radius: 28px;
+        width: 90vw;
+        margin: auto;
+        padding-bottom: 50px;
+    }
+
+    main {
+        height: calc(100vh - 174.8px) !important;
+        display: flex;
+    }
+
+    .main-content {
+        display: block;
+        border-radius: 15px; 
+        padding: 30px;
+        max-height: 300px !important;
+        overflow: scroll;
+        background-color: white;
+    }
+}
+@media screen and (min-width:450px) {
+    .main-content {
+        display: block;
+        border-radius: 15px; 
+        padding: 50px;
+        max-height: 500px !important;
+        overflow: scroll;
+        background-color: white;
+    }
+
+    .game-main-content-frame {
+        width: 400px;
+    }
+
+    .game-main-content-frame .main-content{
+        padding: 15px 30px 15px 30px;
+    }
+
+    .grid-3-cols .col {
+        width: 65px;
+        height: 65px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    .header-link {
+        display: flex;
+    }
+    
+    footer {
+        display: none;
+    }
+
+    .main-frame {
+        border: solid 3px #FFC940;
+        border-radius: 28px;
+        width: 60vw;
+        margin: auto;
+        padding-bottom: 70px;
+    }
+
+    .header {
+        padding-left: 15vw;
+        padding-right: 15vw;
+    }
+
+    main {
+        height: calc(100vh - 100px) !important; 
+        display: flex;
+    }
+
+}
+
+
+
+body {
+    margin:0;
+    background-color: #24003B;
+}
+
+footer {
+    position:absolute;
+    bottom:0;
+    width: 100%;
+    margin:0;
+    background-color: white;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+.game-info {
+    background-color: #FFC940; 
+    border-radius: 15px; 
+    padding:5px; 
+    display: inline-block;
+    padding: 1px 30px 1px 30px;
+    font-size: 23px;
+}
+
+#div:has(>input) {
+    background-color: red;
+    
+    &:after {
+        content: " (" attr(data-underscores) ")";
+        color: #FFC940;
+        font-size: 32px;
+    }
+}
+
+#userInput {
+    width: 100px;
+    font-size: 32px;
+    letter-spacing: 4px;
+    color:#FFC940;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    bottom:5px;
+}
+
+.user-input-container {
+    position: relative;
+    width: min-content; 
+    margin: 50px auto 50px auto;
+    
+    &:after {
+        content: attr(data-underscores);
+        color: #FFC940;
+        font-size: 32px;
+        letter-spacing: 6px;
+        line-height: 0px;
+    }
+    margin-bottom: 50px;
+}
